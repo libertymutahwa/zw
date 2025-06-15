@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Projects | Mutahwa Liberty</title>
+    <meta name="description" content="A portfolio of bioinformatics and machine learning projects by Mutahwa Liberty.">
+
+    <!-- Meta and Favicon links -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://libertymutahwa.github.io/projects.html">
+    <meta property="og:title" content="My Work | Mutahwa Liberty">
+    <meta property="og:description" content="Explore my detailed project case studies in bioinformatics and machine learning, including code and outcomes.">
+    <meta property="og:image" content="https://libertymutahwa.github.io/assets/images/social-preview.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Fonts and Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ======================= HEADER / NAVIGATION (UPDATED) ======================= -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">MUTAHWA LIBERTY</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <!-- NEW "SERVICES" LINK ADDED HERE -->
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="skills.html" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link nav-contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger" aria-controls="nav-menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ======================= MAIN CONTENT ======================= -->
+    <main class="page-container">
+        <section class="projects-page">
+            <div class="container">
+                <h1 class="section-title" id="page-title" data-title="My Work"></h1>
+
+                <div class="project-case-study fade-in" id="tumor-ml">
+                    <div class="project-cs-image">
+                        <img src="assets/images/project-tumor-ml.png" alt="Tumor classification model visual">
+                    </div>
+                    <div class="project-cs-content">
+                        <h3>Tumor Classification with Machine Learning</h3>
+                        <p><strong>The Challenge:</strong> To accurately classify breast cancer tumors as malignant or benign from complex genomic data, providing a potential tool for faster diagnostics.</p>
+                        <p><strong>My Approach:</strong> I developed an end-to-end pipeline in Python using scikit-learn. This involved rigorous data preprocessing, feature selection using PCA for dimensionality reduction, and training multiple classifiers. An ensemble model (Random Forest and Voting Classifier) was implemented to maximize accuracy and robustness.</p>
+                        <p><strong>The Outcome:</strong> The model achieved high classification accuracy. Using Random Forest's feature importance, I was able to identify key genetic markers that were most predictive of tumor malignancy, demonstrating a full cycle of data analysis from raw data to actionable insight.</p>
+                        <div class="project-tags">
+                            <span>Python</span> <span>Scikit-learn</span> <span>Pandas</span> <span>Machine Learning</span> <span>PCA</span>
+                        </div>
+                        <a href="https://github.com/libertymutahwa/Breast-Cancer-Diagnosis" target="_blank" class="btn btn-secondary">View Code on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-case-study fade-in" id="dge-analysis">
+                     <div class="project-cs-image">
+                        <img src="assets/images/project-dge-volcano.png" alt="Volcano plot">
+                    </div>
+                    <div class="project-cs-content">
+                        <h3>Differential Gene Expression in Breast Cancer</h3>
+                        <p><strong>The Challenge:</strong> To identify genes that are significantly up- or down-regulated in Triple-Negative Breast Cancer (TNBC) compared to normal tissue, which could reveal potential therapeutic targets.</p>
+                        <p><strong>My Approach:</strong> I sourced and integrated three separate datasets from the Gene Expression Omnibus (GEO). Using R and the DESeq2 package, I performed a rigorous differential gene expression analysis pipeline. The results were visualized using advanced plots like volcano plots, heatmaps, and PCA plots for clear interpretation.</p>
+                        <p><strong>The Outcome:</strong> The analysis successfully identified a list of statistically significant DEGs. I further explored their functional relationships by constructing a protein-protein interaction (PPI) network using STRINGdb, highlighting key biological pathways implicated in TNBC.</p>
+                        <div class="project-tags">
+                            <span>R</span> <span>DESeq2</span> <span>Bioconductor</span> <span>Data Visualization</span> <span>GEO</span>
+                        </div>
+                         <a href="https://github.com/libertymutahwa/TNBC-Omics" target="_blank" class="btn btn-secondary">View Code on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-case-study fade-in" id="amr-model">
+                    <div class="project-cs-image">
+                        <img src="assets/images/project-amr.png" alt="AMR surveillance conceptual image">
+                    </div>
+                    <div class="project-cs-content">
+                        <h3>Predictive Model for AMR Surveillance (Thesis)</h3>
+                        <p><strong>The Challenge:</strong> Antimicrobial Resistance (AMR) is a silent pandemic. The goal of my undergraduate thesis was to develop a proof-of-concept machine learning model to predict AMR patterns from clinical data, aiding in public health surveillance.</p>
+                        <p><strong>My Approach:</strong> This project involved collecting and cleaning diverse clinical datasets. I then engineered features relevant to resistance patterns and trained several predictive models to identify the most effective algorithm. The focus was on creating a model that was not only accurate but also interpretable.</p>
+                        <p><strong>The Outcome:</strong> The resulting model demonstrated the feasibility of using machine learning for AMR surveillance, laying the groundwork for more advanced, data-driven approaches to combat infectious diseases in the region. The project solidified my skills in the entire machine learning lifecycle, from data collection to model deployment.</p>
+                        <div class="project-tags">
+                            <span>Machine Learning</span> <span>Public Health</span> <span>Predictive Analytics</span> <span>Data Cleaning</span>
+                        </div>
+                         <a href="#" class="btn btn-secondary disabled">Code Not Public</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-socials">
+                <a href="https://github.com/libertymutahwa" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mutahwa-liberty/" target="_blank"aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:mutahwaliberty@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>© <span id="year"></span> Mutahwa Liberty. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Insights | Mutahwa Liberty</title>
+    <meta name="description" content="Articles and insights from Mutahwa Liberty on bioinformatics, machine learning in healthcare, and the future of computational biology.">
+    
+    <!-- Meta, Favicon, Font and CSS links -->
+    <meta property="og:url" content="https://libertymutahwa.github.io/insights.html">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ... (all other head content remains the same) ... -->
+</head>
+<body>
+    <!-- ======================= HEADER / NAVIGATION (UPDATED) ======================= -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">MUTAHWA LIBERTY</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="skills.html" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link nav-contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger" aria-controls="nav-menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT (IMPROVED) -->
+    <main class="page-container">
+        <section class="insights-page">
+            <div class="container">
+                <!-- DATA-TITLE ATTRIBUTE ADDED HERE -->
+                <h1 class="section-title" id="page-title" data-title="My Thoughts and Insights"></h1>
+                <p class="skills-intro">Beyond projects, I believe it's important to discuss the concepts and challenges in our field. Here I share tutorials, paper reviews, and my thoughts on the future of computational biology.</p>
+
+                <div class="insights-grid">
+                    <div class="insight-card fade-in">
+                        <img src="assets/images/insight-ml.jpeg" alt="Abstract machine learning graphic" class="insight-image">
+                        <div class="insight-content">
+                            <p class="insight-meta">TUTORIAL • Jun 10, 2025</p>
+                            <h3 class="insight-title">A Step-by-Step Guide to Building Your First Cancer Classifier</h3>
+                            <p class="insight-excerpt">Ever wondered how to apply machine learning to a real biological problem? In this post, I walk through the complete process of building a tumor classifier, from data cleaning in Pandas to model training with Scikit-learn.</p>
+                            <a href="#" class="btn-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <img src="assets/images/insight-amr.png" alt="Microbes and petri dish graphic" class="insight-image">
+                        <div class="insight-content">
+                            <p class="insight-meta">REVIEW • SEP 25, 2024</p>
+                            <h3 class="insight-title">The Role of Genomics in Combating Antimicrobial Resistance</h3>
+                            <p class="insight-excerpt">Antimicrobial resistance is a global crisis. I review a recent groundbreaking paper and discuss how whole-genome sequencing is changing the game for AMR surveillance and outbreak investigation.</p>
+                            <a href="https://www.cdc.gov/amd/what-is-amd/amr-and-genomics.html" target="_blank" rel="noopener noreferrer" class="btn-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="insight-card fade-in">
+                        <img src="assets/images/insight-reproducibility.jpeg" alt="Code and gears graphic" class="insight-image">
+                        <div class="insight-content">
+                            <p class="insight-meta">OPINION • Jun 15, 2025</p>
+                            <h3 class="insight-title">Why Reproducibility is the Cornerstone of Computational Biology</h3>
+                            <p class="insight-excerpt">In a field driven by code, how can we ensure our results are reliable? I explore the importance of tools like Git, Docker, and RMarkdown in creating transparent and reproducible scientific research.</p>
+                            <a href="#" class="btn-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-socials">
+                 <a href="https://github.com/libertymutahwa" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mutahwa-liberty/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:mutahwaliberty@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>© <span id="year"></span> Mutahwa Liberty. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
