@@ -129,7 +129,11 @@ section {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--text-dark);
+
+    /* Hides the text logo in the navigation bar */
+    display: none;
 }
+
 
 .nav-menu {
     display: flex;
