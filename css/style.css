@@ -99,7 +99,7 @@ body.dark-theme .header {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* This is the key change to center the nav */
     align-items: center;
     height: var(--header-height);
     padding: 0 2rem;
@@ -131,7 +131,7 @@ body.dark-theme .header {
     padding: 0.5rem 0;
     position: relative;
     transition: color 0.3s ease;
-    text-transform: uppercase; /* <-- ADDED THIS LINE */
+    text-transform: uppercase;
 }
 
 .nav-link::after {
@@ -174,24 +174,27 @@ body.dark-theme .header {
 .nav-controls {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    /* The gap is now handled by the .nav-menu list */
 }
 
+/* Updated theme toggle to look like a nav link */
 .theme-toggle {
     background: none;
     border: none;
     color: var(--text-color);
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 0.5rem;
-    border-radius: 50%;
-    transition: background-color 0.3s;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
 }
 
 .theme-toggle:hover {
-    background-color: rgba(128, 128, 128, 0.1);
+    color: var(--primary-color);
 }
 
 .theme-toggle .fa-sun {
@@ -491,6 +494,10 @@ main {
 
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 850px) {
+    .navbar {
+        justify-content: space-between; /* On mobile, we want space between the (hidden) logo and hamburger */
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -738,7 +745,6 @@ main {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 1.5rem; /* Creates space between the menu and the toggle button */
 }
 
 /* Style the new text inside the button */
@@ -751,5 +757,44 @@ main {
 @media (max-width: 850px) {
     .theme-toggle span {
         display: none;
+    }
+}
+
+/* ======================= RESTORED STYLES FOR VISUAL EFFECTS ======================= */
+
+/* --- 1. Color for the typewriter effect text --- */
+#typing-text {
+    color: var(--primary-color);
+}
+
+
+/* --- 2. Big, multi-colored style for your name in the hero section --- */
+#artistic-name {
+    font-size: 4.5rem; /* Make the font size nice and big */
+    font-weight: 700;  /* Make it bold */
+    margin-bottom: 1.5rem;
+    
+    /* This creates a beautiful color gradient */
+    background: linear-gradient(90deg, #4dabf7, #da77f2, #f783ac);
+    
+    /* These next lines are the magic: they apply the background gradient TO the text */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* This makes the actual text color transparent so the background shows through */
+    color: transparent;
+}
+
+/* Responsive adjustment for the large name on smaller screens */
+@media (max-width: 768px) {
+    #artistic-name {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 480px) {
+    #artistic-name {
+        font-size: 2.5rem;
     }
 }
