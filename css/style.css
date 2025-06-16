@@ -693,7 +693,7 @@ main {
 }
 .service-card {
     background-color: transparent;
-    min-height: 250px;
+    min-height: 320px; /* <-- THIS IS THE KEY CHANGE TO MAKE CARDS BIGGER */
     perspective: 1000px;
 }
 .service-card-inner {
@@ -800,10 +800,10 @@ main {
 
 /* NEW: Typewriter effect for all other page titles */
 #page-title {
-    display: inline-block; /* Required for the effect to work */
+    display: inline-block;
 }
 #page-title::before {
-    display: inline-block; /* Also required */
+    display: inline-block;
     overflow: hidden;
     white-space: nowrap;
     width: 0;
