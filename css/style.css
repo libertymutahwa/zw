@@ -688,8 +688,26 @@ main {
 .skill-tags span { background-color: var(--background-color); border: 1px solid var(--border-color); color: var(--secondary-color); font-size: 0.8rem; padding: 0.25rem 0.75rem; border-radius: 15px; }
 
 /* --- Services Page --- */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+/* --- Services Page --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: 1 column on the smallest screens */
+    gap: 2rem;
+}
 
+/* On tablets and larger screens, switch to 2 columns */
+@media (min-width: 600px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* On desktops and wider screens, switch to the 3-column layout you want */
+@media (min-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 .service-card { background-color: transparent; min-height: 250px; perspective: 1000px; }
 
 .service-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
