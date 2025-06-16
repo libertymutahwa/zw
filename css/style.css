@@ -691,8 +691,88 @@ main {
 /* --- Services Page --- */
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Default: 1 column on the smallest screens */
+    grid-template-columns: 1fr; /* Default: 1 column on mobile */
     gap: 2rem;
+    max-width: 800px; /* Constrains the width on very large screens */
+    margin: 0 auto;    /* Centers the grid container */
+}
+
+/* On tablets and larger, switch to the 2-column layout */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.service-card {
+    background-color: transparent;
+    min-height: 250px; /* CRITICAL FIX: Allows card to grow taller if needed */
+    perspective: 1000px;
+}
+.service-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.service-card:hover .service-card-inner {
+    transform: rotateY(180deg);
+}
+.service-card-front, .service-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+.service-card-front {
+    background-color: var(--surface-color);
+}
+.service-card-front i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+.service-card-front h3 {
+    font-size: 1.2rem;
+}
+.service-card-back {
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotateY(180deg);
+    padding: 1.5rem; /* Slightly smaller padding to give content more room */
+}
+.service-card-back h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+.service-card-back p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.service-card-back ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+}
+.service-card-back .btn-link {
+    color: white;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+.service-card-back .btn-link:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 /* On tablets and larger screens, switch to 2 columns */
@@ -818,9 +898,3 @@ main {
         font-size: 2.5rem;
     }
 }
-
-
-
-
-
-
