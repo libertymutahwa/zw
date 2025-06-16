@@ -99,7 +99,7 @@ body.dark-theme .header {
 
 .navbar {
     display: flex;
-    justify-content: center; /* This is the key change to center the nav */
+    justify-content: center;
     align-items: center;
     height: var(--header-height);
     padding: 0 2rem;
@@ -174,10 +174,8 @@ body.dark-theme .header {
 .nav-controls {
     display: flex;
     align-items: center;
-    /* The gap is now handled by the .nav-menu list */
 }
 
-/* Updated theme toggle to look like a nav link */
 .theme-toggle {
     background: none;
     border: none;
@@ -208,7 +206,6 @@ body.dark-theme .theme-toggle .fa-sun {
 body.dark-theme .theme-toggle .fa-moon {
     display: none;
 }
-
 
 .hamburger {
     display: none;
@@ -468,12 +465,6 @@ main {
 
 
 /* ======================= ANIMATIONS ======================= */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInAnimation 0.8s ease-out forwards;
-}
-
 @keyframes fadeInAnimation {
     from {
         opacity: 0;
@@ -495,7 +486,7 @@ main {
 /* ======================= RESPONSIVE DESIGN ======================= */
 @media (max-width: 850px) {
     .navbar {
-        justify-content: space-between; /* On mobile, we want space between the (hidden) logo and hamburger */
+        justify-content: space-between;
     }
 
     .nav-menu {
@@ -527,7 +518,7 @@ main {
 
     .hamburger {
         display: block;
-        z-index: 1001; /* Ensure it's above the nav menu */
+        z-index: 1001;
     }
 
     .hamburger.active .bar:nth-child(2) {
@@ -687,26 +678,22 @@ main {
 .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .skill-tags span { background-color: var(--background-color); border: 1px solid var(--border-color); color: var(--secondary-color); font-size: 0.8rem; padding: 0.25rem 0.75rem; border-radius: 15px; }
 
-/* --- Services Page --- */
-/* --- Services Page --- */
+/* --- Services Page (Updated for 2x3 grid and responsive cards) --- */
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Default: 1 column on mobile */
+    grid-template-columns: 1fr;
     gap: 2rem;
-    max-width: 800px; /* Constrains the width on very large screens */
-    margin: 0 auto;    /* Centers the grid container */
+    max-width: 800px;
+    margin: 0 auto;
 }
-
-/* On tablets and larger, switch to the 2-column layout */
 @media (min-width: 768px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
 .service-card {
     background-color: transparent;
-    min-height: 250px; /* CRITICAL FIX: Allows card to grow taller if needed */
+    min-height: 250px;
     perspective: 1000px;
 }
 .service-card-inner {
@@ -734,47 +721,20 @@ main {
     border: 1px solid var(--border-color);
     text-align: center;
 }
-.service-card-front {
-    background-color: var(--surface-color);
-}
-.service-card-front i {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-.service-card-front h3 {
-    font-size: 1.2rem;
-}
+.service-card-front { background-color: var(--surface-color); }
+.service-card-front i { font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem; }
+.service-card-front h3 { font-size: 1.2rem; }
 .service-card-back {
     background-color: var(--primary-color);
     color: white;
     transform: rotateY(180deg);
-    padding: 1.5rem; /* Slightly smaller padding to give content more room */
+    padding: 1.5rem;
 }
-.service-card-back h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
-}
-.service-card-back p {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-.service-card-back ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1.5rem;
-    font-size: 0.85rem;
-}
-.service-card-back .btn-link {
-    color: white;
-    border: 1px solid white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-}
-.service-card-back .btn-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
+.service-card-back h4 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+.service-card-back p { font-size: 0.9rem; margin-bottom: 1rem; }
+.service-card-back ul { list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; }
+.service-card-back .btn-link { color: white; border: 1px solid white; padding: 0.5rem 1rem; border-radius: 20px; }
+.service-card-back .btn-link:hover { background: rgba(255,255,255,0.2); }
 
 /* --- Insights Page --- */
 .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
@@ -793,67 +753,69 @@ main {
     .form-group { flex-direction: column; }
 }
 
-/* ======================= NEW STYLES FROM REFINEMENT ======================= */
+/* ======================= REFINED & RESTORED STYLES ======================= */
 
 /* Hides the text logo in the navigation bar */
 .nav-logo {
     display: none;
 }
 
-/* This new div will hold our menu and controls for better layout */
 .nav-right {
     display: flex;
     align-items: center;
 }
 
-/* Style the new text inside the button */
 .theme-toggle span {
-    margin-left: 8px; /* Space between icon and text */
+    margin-left: 8px;
     font-size: 0.9rem;
 }
 
-/* On smaller screens (tablets/mobile), hide the text to save space */
 @media (max-width: 850px) {
     .theme-toggle span {
         display: none;
     }
 }
 
-/* ======================= RESTORED STYLES FOR VISUAL EFFECTS ======================= */
-
-/* --- 1. Color for the typewriter effect text --- */
+/* Color for the homepage typewriter effect */
 #typing-text {
     color: var(--primary-color);
 }
 
-
-/* --- 2. Big, multi-colored style for your name in the hero section --- */
+/* Big, multi-colored style for your name in the hero section */
 #artistic-name {
-    font-size: 4.5rem; /* Make the font size nice and big */
-    font-weight: 700;  /* Make it bold */
+    font-size: 4.5rem;
+    font-weight: 700;
     margin-bottom: 1.5rem;
-    
-    /* This creates a beautiful color gradient */
     background: linear-gradient(90deg, #4dabf7, #da77f2, #f783ac);
-    
-    /* These next lines are the magic: they apply the background gradient TO the text */
     -webkit-background-clip: text;
     background-clip: text;
-    
-    /* This makes the actual text color transparent so the background shows through */
     color: transparent;
 }
-
-/* Responsive adjustment for the large name on smaller screens */
 @media (max-width: 768px) {
-    #artistic-name {
-        font-size: 3rem;
-        line-height: 1.2;
-    }
+    #artistic-name { font-size: 3rem; line-height: 1.2; }
+}
+@media (max-width: 480px) {
+    #artistic-name { font-size: 2.5rem; }
 }
 
-@media (max-width: 480px) {
-    #artistic-name {
-        font-size: 2.5rem;
-    }
+/* NEW: Typewriter effect for all other page titles */
+#page-title {
+    display: inline-block; /* Required for the effect to work */
+}
+#page-title::before {
+    display: inline-block; /* Also required */
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-right: 3px solid var(--primary-color);
+    animation: typing 2s steps(30, end) forwards, blink .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color); }
 }
