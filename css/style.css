@@ -558,16 +558,6 @@ main {
 
 /* ======================= PAGE SPECIFIC STYLES ======================= */
 
-/* --- Universal Page Title --- */
-#page-title::before {
-    content: attr(data-title);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    position: relative;
-    padding-bottom: 1rem;
-}
-
 /* --- About Page --- */
 .about-page-header {
     display: flex;
@@ -678,22 +668,18 @@ main {
 .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .skill-tags span { background-color: var(--background-color); border: 1px solid var(--border-color); color: var(--secondary-color); font-size: 0.8rem; padding: 0.25rem 0.75rem; border-radius: 15px; }
 
-/* --- Services Page (Updated for 2x3 grid and responsive cards) --- */
+/* --- Services Page (Updated for a single column layout) --- */
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* This will now be a 1-column grid on ALL screen sizes */
     gap: 2rem;
-    max-width: 800px;
+    max-width: 800px; /* The cards will be wide but constrained to a readable width */
     margin: 0 auto;
 }
-@media (min-width: 768px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+
 .service-card {
     background-color: transparent;
-    min-height: 320px; /* <-- THIS IS THE KEY CHANGE TO MAKE CARDS BIGGER */
+    min-height: 250px;
     perspective: 1000px;
 }
 .service-card-inner {
@@ -798,24 +784,30 @@ main {
     #artistic-name { font-size: 2.5rem; }
 }
 
-/* NEW: Typewriter effect for all other page titles */
+
+/* ======================= NEW TYPEWRITER FOR PAGE TITLES ======================= */
+
 #page-title {
-    display: inline-block;
-}
-#page-title::before {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 0;
-    border-right: 3px solid var(--primary-color);
-    animation: typing 2s steps(30, end) forwards, blink .75s step-end infinite;
+    display: inline-block; /* Required for the effect to work properly */
 }
 
+/* This ::before pseudo-element will contain the animated title */
+#page-title::before {
+    content: attr(data-title); /* Grabs the title from the HTML's data-title attribute */
+    display: inline-block;
+    overflow: hidden; /* Hides the text that hasn't been "typed" yet */
+    white-space: nowrap; /* Prevents the title from wrapping as it animates */
+    width: 0; /* Starts with no width, so it's invisible */
+    border-right: 3px solid var(--primary-color); /* This is the blinking cursor */
+    
+    /* Apply two animations: one for typing, one for blinking the cursor */
+    animation: 
+        typing 2s steps(40, end) forwards, /* The typing animation */
+        blink .75s step-end infinite;     /* The cursor blink animation */
+}
+
+/* Keyframes for the typing animation (expands the width) */
 @keyframes typing {
     from { width: 0 }
     to { width: 100% }
-}
-@keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: var(--primary-color); }
 }
