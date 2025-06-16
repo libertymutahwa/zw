@@ -585,6 +585,7 @@ main {
     margin-top: 2rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
+    text-align: center; /* This centers the titles */
 }
 .section-divider {
     border: 0;
@@ -785,25 +786,28 @@ main {
 }
 
 
-/* ======================= NEW TYPEWRITER FOR PAGE TITLES ======================= */
+/* ======================= NEW CENTERED & COLORED TYPEWRITER FOR PAGE TITLES ======================= */
 
-#page-title {
-    display: inline-block; /* Required for the effect to work properly */
+/*
+ * This selector is more specific. It targets the ::before pseudo-element
+ * of any H1 tag that has BOTH the .section-title class and a data-title attribute.
+ * This ensures the animation happens correctly inside the centered H1.
+*/
+h1.section-title[data-title]::before {
+    content: attr(data-title); /* Get the title from the data-title attribute */
+    color: var(--primary-color); /* ADD THIS: This colors the animated text */
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-right: 3px solid var(--primary-color); /* The blinking cursor */
+    animation: 
+        typing 2s steps(40, end) forwards,
+        blink .75s step-end infinite;
 }
 
-/* This ::before pseudo-element will contain the animated title */
-#page-title::before {
-    content: attr(data-title); /* Grabs the title from the HTML's data-title attribute */
-    display: inline-block;
-    overflow: hidden; /* Hides the text that hasn't been "typed" yet */
-    white-space: nowrap; /* Prevents the title from wrapping as it animates */
-    width: 0; /* Starts with no width, so it's invisible */
-    border-right: 3px solid var(--primary-color); /* This is the blinking cursor */
-    
-    /* Apply two animations: one for typing, one for blinking the cursor */
-    animation: 
-        typing 2s steps(40, end) forwards, /* The typing animation */
-        blink .75s step-end infinite;     /* The cursor blink animation */
+/* We also need to hide the decorative underline on the animating titles */
+h1.section-title[data-title]::after {
+    display: none;
 }
 
 /* Keyframes for the typing animation (expands the width) */
