@@ -122,6 +122,24 @@
                     </div>
                 </div>
 
+                <!-- =========== NEW PROJECT ADDED HERE =========== -->
+                <div class="project-case-study fade-in" id="hiv-vls-prediction">
+                    <div class="project-cs-image">
+                        <img src="assets/images/project-hiv-prediction.png" alt="ROC curves for HIV viral load suppression models">
+                    </div>
+                    <div class="project-cs-content">
+                        <h3>Predicting HIV Viral Load Suppression in Zimbabwe</h3>
+                        <p><strong>The Challenge:</strong> Despite high treatment coverage in Zimbabwe, a significant portion of HIV-positive adults fail to achieve viral load suppression (VLS). Identifying these at-risk individuals is difficult with traditional methods, and no machine learning models existed specifically for the Zimbabwean context.</p>
+                        <p><strong>My Approach:</strong> I leveraged the nationally representative ZIMPHIA 2020 survey dataset of nearly 3,000 patients. The pipeline, built using R and Python, involved rigorous data cleaning, preprocessing, and feature selection using Recursive Feature Elimination (RFE). I developed and conducted a comparative analysis of five distinct machine learning models (including Random Forest, AdaBoost, XGBoost, and SVM) to predict VLS, validated using 10-fold cross-validation.</p>
+                        <p><strong>The Outcome:</strong> The Random Forest model delivered the best overall performance, achieving a high AUC of 0.92 and a cross-validated AUC of 0.98. Crucially, the model's feature importance analysis identified CD4 cell count and antiretroviral (ARV) status as the most powerful predictors. This project successfully demonstrates the feasibility of using ML to create a data-driven tool that can help clinicians identify high-risk patients, enabling targeted interventions and optimizing HIV care in resource-limited settings.</p>
+                        <div class="project-tags">
+                            <span>R</span> <span>Python</span> <span>Scikit-learn</span> <span>Machine Learning</span> <span>Public Health</span> <span>Predictive Modeling</span> <span>XGBoost</span>
+                        </div>
+                         <a href="https://github.com/libertymutahwa/HIV-VLS-Prediction" target="_blank" class="btn btn-secondary">View Code on GitHub</a>
+                    </div>
+                </div>
+                <!-- ============================================== -->
+
             </div>
         </section>
     </main>
