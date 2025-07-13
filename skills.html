@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- ======================= HEADER / NAVIGATION (CORRECTED) ======================= -->
+    <!-- ======================= HEADER / NAVIGATION ======================= -->
     <header class="header">
         <nav class="navbar">
             <a href="/zw/" class="nav-logo">MUTAHWA LIBERTY</a>
@@ -46,17 +46,13 @@
                     <li class="nav-item"><a href="/zw/insights.html" class="nav-link">Insights</a></li>
                     <li class="nav-item"><a href="/zw/contact.html" class="nav-link nav-contact">Contact</a></li>
                     
-                    <!-- The theme toggle is now the last navigation item -->
                     <li class="nav-item">
                         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
-                            <i class="fas fa-moon"></i>
-                            <i class="fas fa-sun"></i>
-                            <span>Theme</span>
+                            <i class="fas fa-moon"></i><i class="fas fa-sun"></i><span>Theme</span>
                         </button>
                     </li>
                 </ul>
                 <div class="nav-controls">
-                    <!-- The hamburger is now the only thing in nav-controls -->
                     <div class="hamburger" id="hamburger" aria-controls="nav-menu" aria-expanded="false">
                         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                     </div>
@@ -74,21 +70,21 @@
                 <p class="skills-intro">I am proficient in a diverse range of tools and technologies, allowing me to move seamlessly from raw biological data to actionable insights. Here is a summary of my core competencies.</p>
 
                 <div class="skills-grid">
-                    <!-- Programming & Databases -->
+                    <!-- Programming and Databases -->
                     <div class="skill-category fade-in">
                         <h3><i class="fas fa-code"></i> Programming and Databases</h3>
                         <div class="skill-item">
                             <h4>Python</h4>
-                            <p>For data manipulation, machine learning, and complex bioinformatics tasks.</p>
+                            <p>For data manipulation, machine learning, and building complex bioinformatics pipelines.</p>
                             <div class="skill-tags">
-                                <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>Biopython</span>
+                                <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>XGBoost</span><span>Biopython</span>
                             </div>
                         </div>
                         <div class="skill-item">
                             <h4>R</h4>
                             <p>For statistical analysis, data visualization, and specialized bioinformatics packages.</p>
                             <div class="skill-tags">
-                                <span>ggplot2</span><span>dplyr</span><span>Bioconductor</span><span>DESeq2</span>
+                                <span>ggplot2</span><span>dplyr</span><span>caret</span><span>Bioconductor</span><span>DESeq2</span>
                             </div>
                         </div>
                         <div class="skill-item">
@@ -100,48 +96,67 @@
                         </div>
                         <div class="skill-item">
                             <h4>Bash/Shell Scripting</h4>
-                            <p>For automating workflows and managing data pipelines in Linux environments.</p>
+                            <p>For automating workflows, managing large files, and creating reproducible analysis pipelines in a Linux environment.</p>
                             <div class="skill-tags">
-                                <span>AWK</span><span>sed</span><span>grep</span>
+                                <span>AWK</span><span>sed</span><span>grep</span><span>Piping</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Bioinformatics & Data Analysis -->
+                    <!-- Bioinformatics and Data Analysis -->
                     <div class="skill-category fade-in">
                         <h3><i class="fas fa-dna"></i> Bioinformatics and Data Analysis</h3>
                         <div class="skill-item">
-                            <h4>Next-Generation Sequencing (NGS)</h4>
-                            <p>Hands-on experience with RNA-Seq data analysis, from raw reads to insights.</p>
+                            <h4>Genomic and NGS Analysis</h4>
+                            <p>End-to-end analysis of genomic data, from raw reads and quality control to variant calling and functional interpretation.</p>
                             <div class="skill-tags">
-                                <span>FastQC</span><span>Bowtie</span><span>STAR</span><span>Differential Expression</span>
+                                <span>Viral Genomics</span><span>RNA-Seq</span><span>Variant Calling</span><span>FastQC</span><span>MAFFT</span><span>FreeBayes</span>
+                            </div>
+                        </div>
+                         <div class="skill-item">
+                            <h4>Phylogenetics and Viral Evolution</h4>
+                            <p>Reconstructing evolutionary relationships to track viral transmission and identify key lineages.</p>
+                            <div class="skill-tags">
+                                <span>MEGA X</span><span>Maximum Likelihood</span><span>Phylogenetic Trees</span><span>MSA</span>
                             </div>
                         </div>
                         <div class="skill-item">
                             <h4>Machine Learning</h4>
-                            <p>Practical application of algorithms on biological datasets for prediction and classification.</p>
+                            <p>Applying algorithms to biological and clinical datasets for prediction, classification, and feature identification.</p>
                             <div class="skill-tags">
-                                <span>Classification</span><span>Clustering</span><span>Feature Selection</span><span>PCA</span>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <h4>Cheminformatics</h4>
-                            <p>Working with molecular data to analyze chemical structures and properties.</p>
-                            <div class="skill-tags">
-                                <span>RDKit</span>
+                                <span>Classification</span><span>Predictive Modeling</span><span>Cross-Validation</span><span>Feature Selection (RFE)</span>
                             </div>
                         </div>
                          <div class="skill-item">
                             <h4>Genomic Tools</h4>
-                            <p>Familiar with common command-line utilities for handling various genomic data formats.</p>
+                            <p>Familiar with command-line utilities for handling various genomic data formats and performing sequence analysis.</p>
                             <div class="skill-tags">
-                                <span>SAMtools</span><span>SRA Toolkit</span><span>BLAST</span><span>Clustal</span><span>MAFFT</span>
+                                <span>SAMtools</span><span>SRA Toolkit</span><span>BLAST</span><span>Clustal</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NEW: Computational Epidemiology -->
+                    <div class="skill-category fade-in">
+                        <h3><i class="fas fa-head-side-virus"></i> Computational Epidemiology and Public Health</h3>
+                        <div class="skill-item">
+                            <h4>Predictive Health Analytics</h4>
+                            <p>Developing models to forecast health outcomes (e.g., disease risk, treatment success) to inform public health strategy.</p>
+                            <div class="skill-tags">
+                                <span>Risk Stratification</span><span>Clinical Data Analysis</span><span>Health Informatics</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Genomic Surveillance</h4>
+                            <p>Using genomic data to monitor pathogen evolution and transmission dynamics in real-time, supporting outbreak response.</p>
+                            <div class="skill-tags">
+                                <span>Variant Tracking</span><span>Outbreak Analysis</span><span>Molecular Epidemiology</span>
                             </div>
                         </div>
                     </div>
 
 
-                    <!-- Developer Tools & Platforms -->
+                    <!-- Developer Tools and Platforms -->
                     <div class="skill-category fade-in">
                         <h3><i class="fas fa-tools"></i> Developer Tools and Platforms</h3>
                         <div class="skill-item">
@@ -160,13 +175,24 @@
                         </div>
                         <div class="skill-item">
                             <h4>Scientific Databases</h4>
-                            <p>Skilled at retrieving and interpreting data from major public repositories.</p>
+                            <p>Skilled at retrieving and interpreting data from major public biological and viral data repositories.</p>
                             <div class="skill-tags">
-                                <span>NCBI</span><span>GEO</span><span>UniProt</span><span>KEGG</span>
+                                <span>NCBI</span><span>GEO</span><span>GISAID</span><span>UniProt</span><span>KEGG</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Web Scripting and Data Mining -->
+                    <div class="skill-category fade-in">
+                        <h3><i class="fas fa-network-wired"></i> Web Scripting and Data Mining</h3>
+                        <div class="skill-item">
+                            <h4>Data Acquisition and Automation</h4>
+                            <p>Using scripts for data mining, programmatically collecting data from websites, and interacting with APIs.</p>
+                            <div class="skill-tags">
+                                <span>Beautiful Soup</span><span>Requests</span><span>Selenium</span><span>BioMart</span><span>API Integration</span>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Wet Lab Skills -->
                     <div class="skill-category fade-in">
@@ -176,18 +202,6 @@
                             <p>Fundamental laboratory experience providing essential context for the data I analyze.</p>
                             <div class="skill-tags">
                                 <span>DNA/RNA Extraction</span><span>PCR and qPCR</span><span>Gel Electrophoresis</span><span>Cell Culture</span><span>Spectrophotometry</span>
-                            </div>
-                        </div>
-                    </div>
-
-                   <!-- Web Scripting & Data Mining -->
-                    <div class="skill-category fade-in">
-                        <h3><i class="fas fa-network-wired"></i> Web Scripting and Data Mining</h3>
-                        <div class="skill-item">
-                            <h4>Data Acquisition and Automation</h4>
-                            <p>Using scripts for data mining, programmatically collecting data from websites, and interacting with APIs.</p>
-                            <div class="skill-tags">
-                                <span>Beautiful Soup</span><span>Requests</span><span>Selenium</span><span>BioMart</span><span>API Integration</span>
                             </div>
                         </div>
                     </div>
