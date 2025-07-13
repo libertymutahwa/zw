@@ -4,19 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-    // Also grab the theme toggle to ensure it works correctly inside the mobile menu
-    const themeToggle = document.getElementById('theme-toggle'); 
+    const themeToggleInMenu = document.getElementById('theme-toggle'); // Renamed to avoid confusion
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            // This toggles the 'X' icon for the hamburger
             hamburger.classList.toggle('active');
-            // This toggles the visibility of the mobile menu
             navMenu.classList.toggle('active');
         });
     }
 
-    // Function to close the mobile menu
     const closeMenu = () => {
         if (hamburger && navMenu) {
             hamburger.classList.remove('active');
@@ -24,35 +20,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Close menu when a standard navigation link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Also close the menu if the theme toggle button is clicked inside it
-    if (themeToggle) {
-        themeToggle.addEventListener('click', closeMenu);
+    if (themeToggleInMenu) {
+        // This listener is only to close the menu when the theme button is clicked inside it
+        themeToggleInMenu.addEventListener('click', (event) => {
+             // We check if the menu is active before closing.
+             // This prevents conflicts if the button is clicked on desktop.
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
     }
 
-    // --- THEME TOGGLE LOGIC ---
-    // We already have themeToggle from above
+
+    // --- THEME TOGGLE LOGIC (STANDALONE) ---
+    const themeToggleButton = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Apply the cached theme on load
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-theme');
     }
 
-    if (themeToggle) {
-        // This event listener is separate from the menu closing logic
-        themeToggle.addEventListener('click', (event) => {
-            // We stop this click from bubbling up to avoid any conflicts
-            event.stopPropagation(); 
-            
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevents click from bubbling up
             body.classList.toggle('dark-theme');
             
-            // Save the user's preference
             if (body.classList.contains('dark-theme')) {
                 localStorage.setItem('theme', 'dark');
             } else {
@@ -64,39 +61,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- TYPEWRITER EFFECT ---
     const typingText = document.getElementById('typing-text');
-    const words = ["Computational Biologist", "Data Scientist", "Bioinformatician", "Researcher"];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    if (typingText) { // Check if the element exists before running
+        const words = ["Computational Biologist", "Data Scientist", "Bioinformatician", "Researcher"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-    function type() {
-        const currentWord = words[wordIndex];
-        
-        if (isDeleting) {
-            charIndex--; // Deleting
-        } else {
-            charIndex++; // Typing
-        }
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                charIndex--;
+            } else {
+                charIndex++;
+            }
 
-        if (typingText) {
             typingText.textContent = currentWord.substring(0, charIndex);
+
+            let typeSpeed = isDeleting ? 100 : 200;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
         }
-
-        let typeSpeed = isDeleting ? 100 : 200;
-
-        if (!isDeleting && charIndex === currentWord.length) {
-            typeSpeed = 2000; // Pause at end of word
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false; // Finished deleting
-            wordIndex = (wordIndex + 1) % words.length;
-            typeSpeed = 500;
-        }
-
-        setTimeout(type, typeSpeed);
-    }
-
-    if (typingText) {
         type();
     }
 
@@ -106,41 +100,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const allNavLinks = document.querySelectorAll('.nav-menu a.nav-link');
 
     allNavLinks.forEach(link => {
-        if (link.pathname === currentPagePath) {
+        // More robust check for active link
+        if (link.getAttribute('href') === currentPagePath || link.getAttribute('href') === currentPagePath.replace('index.html', '')) {
             link.classList.add('active');
         }
     });
 
-    // Special case for the homepage to ensure 'Home' is highlighted
-    if (currentPagePath === '/zw/' || currentPagePath === '/zw/index.html') {
-        const homeLink = document.querySelector('a.nav-link[href="/zw/"]');
-        if (homeLink) {
-            homeLink.classList.add('active');
-        }
-    }
 
+    // --- ENHANCED FADE-IN ON SCROLL ANIMATION (REPLACES OLD ONE) ---
+    const fadeInElements = document.querySelectorAll('.fade-in');
 
-    // --- FADE-IN ON SCROLL ANIMATION ---
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px"
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // 10% of the element is visible
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.style.animation = `fadeInAnimation 0.8s ease-out forwards`;
-                appearOnScroll.unobserve(entry.target);
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Stop observing once visible
             }
         });
-    }, appearOptions);
+    }, observerOptions);
 
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+    fadeInElements.forEach(el => {
+        scrollObserver.observe(el);
     });
+    
+
+    // --- INTERACTIVE PROJECT FILTERING ---
+    const filterContainer = document.querySelector('.project-filters');
+    // This 'if' check is crucial: it ensures this code only runs on the projects page
+    if (filterContainer) {
+        const filterButtons = filterContainer.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-case-study');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                projectItems.forEach(item => {
+                    const itemCategories = item.getAttribute('data-category').split(' ');
+                    
+                    if (filterValue === 'all' || itemCategories.includes(filterValue)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
 
 
     // --- DYNAMIC YEAR IN FOOTER ---
