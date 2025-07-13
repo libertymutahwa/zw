@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- ======================= HEADER / NAVIGATION (CORRECTED) ======================= -->
+    <!-- ======================= HEADER / NAVIGATION ======================= -->
     <header class="header">
         <nav class="navbar">
             <a href="/zw/" class="nav-logo">MUTAHWA LIBERTY</a>
@@ -122,7 +122,6 @@
                     </div>
                 </div>
 
-                <!-- =========== NEW PROJECT ADDED HERE =========== -->
                 <div class="project-case-study fade-in" id="hiv-vls-prediction">
                     <div class="project-cs-image">
                         <img src="assets/images/project-hiv-prediction.png" alt="ROC curves for HIV viral load suppression models">
@@ -138,7 +137,22 @@
                          <a href="https://github.com/libertymutahwa/HIV-VLS-Prediction" target="_blank" class="btn btn-secondary">View Code on GitHub</a>
                     </div>
                 </div>
-                <!-- ============================================== -->
+
+                <div class="project-case-study fade-in" id="hmpxv-genomics">
+                    <div class="project-cs-image">
+                        <img src="assets/images/phylo.png" alt="Phylogenetic tree of Monkeypox virus variants">
+                    </div>
+                    <div class="project-cs-content">
+                        <h3>Genomic Analysis of Monkeypox Virus Variants</h3>
+                        <p><strong>The Challenge:</strong> The re-emergence of Monkeypox (hmpxv) as a global threat has highlighted critical gaps in understanding its genetic evolution, especially within its African endemic regions. A lack of genomic surveillance hinders the ability to track transmission, predict virulence, and inform public health responses.</p>
+                        <p><strong>My Approach:</strong> I designed and executed a full bioinformatics pipeline to analyze 23 complete hmpxv genomes from six African countries. This involved data retrieval from GISAID, rigorous quality control in Python, multiple sequence alignment using MAFFT, and variant calling with FreeBayes. I then performed functional annotation to assess the impact of mutations and reconstructed the virus's evolutionary history using Maximum Likelihood phylogenetic analysis in MEGA X.</p>
+                        <p><strong>The Outcome:</strong> The analysis identified over 18,000 genetic variants, with 62.5% of coding mutations being non-synonymous, indicating strong potential for altered viral function. The phylogenetic analysis clearly delineated the major Clade I (Congo Basin) and Clade II (West African) lineages, revealing distinct, geographically-linked evolutionary paths. This study provides a crucial genomic baseline and a computational framework for monitoring emerging viral threats in real-time.</p>
+                        <div class="project-tags">
+                            <span>Bioinformatics</span> <span>Python</span> <span>Genomics</span> <span>Phylogenetics</span> <span>Viral Evolution</span> <span>Biopython</span>
+                        </div>
+                         <a href="https://github.com/libertymutahwa/HMPXV-Genomic-Analysis" target="_blank" class="btn btn-secondary">View Code on GitHub</a>
+                    </div>
+                </div>
 
             </div>
         </section>
