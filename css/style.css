@@ -815,3 +815,116 @@ h1.section-title[data-title]::after {
     from { width: 0 }
     to { width: 100% }
 }
+
+
+/* ===================================
+   PROJECTS PAGE - ENHANCEMENTS
+   =================================== */
+
+/* --- Project Filter Buttons --- */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 2rem; /* Pill shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-color-hover);
+    color: #fff;
+    border-color: var(--primary-color-hover);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+
+/* --- Project Case Study Enhancements --- */
+.project-case-study {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-case-study:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color-tint);
+}
+
+/* Alternating Layout */
+.project-case-study.project-cs-reverse {
+    flex-direction: row-reverse;
+}
+
+.project-case-study .project-cs-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.project-case-study .project-cs-content {
+    flex: 1.2; /* Give slightly more space to content */
+}
+
+/* Improved Project Tags */
+.project-tags span {
+    background-color: var(--primary-color-tint);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+/* --- Enhanced Scroll Animation --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Responsive Adjustments for Projects Page --- */
+@media (max-width: 768px) {
+    .project-case-study,
+    .project-case-study.project-cs-reverse {
+        flex-direction: column; /* Stack image and content vertically */
+        padding: 1.5rem;
+    }
+
+    .project-case-study .project-cs-image {
+        width: 100%;
+        max-width: 400px; /* Limit image size on mobile */
+    }
+}
